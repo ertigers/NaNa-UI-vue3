@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>switch</p>
+    <p>button</p>
     <p>switch</p>
     <p>switch</p>
     <p>switch</p>
