@@ -1,8 +1,9 @@
 <template>
   <div>
-    <Button @click="log" size="small">
-      点击这里
-    </Button>
+    <Button @click="log">点击这里</Button>
+    <Button @click="log" theme="button">点击这里</Button>
+    <Button @click="log" theme="link">点击这里</Button>
+    <Button @click="log" theme="text">点击这里</Button>
   </div>
 </template>
 
