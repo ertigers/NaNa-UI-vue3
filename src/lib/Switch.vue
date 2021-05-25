@@ -1,6 +1,6 @@
 <template>
-  <div class="nana-switch">
-    <button :class="{checked:value}" @click="toggle"><span></span></button>
+  <div>
+    <button :class="{'nana-checked':value}" @click="toggle"><span></span></button>
   </div>
 </template>
 
@@ -23,43 +23,42 @@ export default {
 $h:22px;
 $h2:$h - 4px;
 .nana-switch {
-  button {
-    height: $h;
-    width: $h*2;
-    background: gray;
-    border-radius: $h/2;
-    border: none;
-    position: relative;
-    span {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      height: $h2;
-      width: $h2;
-      border-radius: $h2/2;
-      background: white;
-      transition: all 0.6s;
+  height: $h;
+  width: $h*2;
+  background: gray;
+  border-radius: $h/2;
+  border: none;
+  position: relative;
+  span {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: $h2;
+    width: $h2;
+    border-radius: $h2/2;
+    background: white;
+    transition: all 0.6s;
+  }
+  &.nana-checked {
+    background: blue;
+    > span {
+      left: calc(100% - #{$h2} - 2px);
     }
-    &.checked {
-      background: blue;
-      > span {
-        left: calc(100% - #{$h2} - 2px);
-      }
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    > span {
+      width: $h2 + 4px;
     }
-    &:focus {
-      outline: none;
-    }
-    &:active {
-      > span {
-        width: $h2 + 4px;
-      }
-    }
-    &.checked:active {
-      > span {
-        width: $h2 + 4px;
-        margin-left: -4px;
-      }
+  }
+  &.nana-checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
     }
   }
 }
+
 </style>
