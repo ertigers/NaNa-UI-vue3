@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button :class="{'nana-checked':value}" @click="toggle"><span></span></button>
-  </div>
+  <button class="nana-switch" :class="{'nana-checked':value}" @click="toggle"><span></span></button>
 </template>
 
 <script>
