@@ -35,7 +35,7 @@
           </svg>        
           <div class="text">
             <h3>代码易读</h3>
-            <p>每个组件的源代码都极其简洁</p>
+            <p>每个组件的源代码都极其简洁,易浏览</p>
           </div>
         </li>
       </ul>
@@ -71,6 +71,7 @@ $border-radius:4px;
       width: 400px;
       margin: 14px 0;
       display: flex;
+      justify-content: center;
       >.text {
         padding-left: 20px;
         display: flex;
