@@ -24,7 +24,7 @@ $h2:$h - 4px;
   height: $h;
   width: $h*2;
   background: gray;
-  border-radius: $h/2;
+  border-radius: 11px;
   border: none;
   position: relative;
   span {
@@ -33,7 +33,7 @@ $h2:$h - 4px;
     left: 2px;
     height: $h2;
     width: $h2;
-    border-radius: $h2/2;
+    border-radius: 9px;
     background: white;
     transition: all 0.6s;
   }
