@@ -57,21 +57,14 @@ $border-radius:4px;
 
 .features {
   margin: 64px auto;
-  width: 400px;
-  @media (min-width:800px) {
-    width: 800px;
-  }
-  @media (min-width:1200px) {
-    width: 1200px;
-  }
   > ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     > li {
       width: 400px;
       margin: 14px 0;
       display: flex;
-      justify-content: center;
       >.text {
         padding-left: 20px;
         display: flex;
@@ -86,6 +79,23 @@ $border-radius:4px;
   svg {
     width: 64px;
     height: 64px;
+  }
+  @media (min-width:800px) {
+    width: 800px;
+    >ul {
+      justify-content: start;
+      >li {
+        width: 50%;
+      }
+    }
+  }
+  @media (min-width:1200px) {
+    width: 1200px;
+    >ul {
+      >li {
+        width: 33.33%;
+      }
+    }
   }
 }
 .banner {

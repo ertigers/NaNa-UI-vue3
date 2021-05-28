@@ -1,6 +1,6 @@
 <template>
   <div class="topnav">
-    <router-link to="/" class="logo">
+    <router-link to="/" class="logo" :class="topNavVisible ? 'logoVisible' : ''">
       <svg class="icon">
         <use xlink:href="#icon-xigua"></use>
       </svg>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { inject, Ref } from 'vue'
+import { inject, onMounted, onUnmounted, ref, Ref, watchEffect } from 'vue'
 export default {
   props:{
     toggleAsideButtonVisible:{
@@ -29,10 +29,25 @@ export default {
   },
   setup(){
     const asideVisible = inject<Ref<boolean>>('asideVisible')
+    let topNavVisible = ref<Boolean>(true)
+    const handleScroll = ()=>{
+      let scrollTop = document.documentElement.scrollTop || 0
+      if(scrollTop <= 0){
+        topNavVisible.value = true
+      }else if(scrollTop > 0 && topNavVisible.value){
+        topNavVisible.value = false
+      }
+    }
     const toggleMenu = ()=> {
       asideVisible.value = !asideVisible.value
     }
-    return { toggleMenu }
+    watchEffect(()=>{
+      window.addEventListener("scroll", handleScroll);
+    })
+    onUnmounted(()=> {
+      window.removeEventListener("scroll", handleScroll);
+    })
+    return { toggleMenu,topNavVisible,handleScroll }
   }
 }
 </script>
@@ -77,6 +92,12 @@ export default {
     }
     >.logo {
       margin: 0 auto;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+    >.logoVisible {
+      opacity: 1;
+      transition: all 0.8s;
     }
     .toggleAside {
       display: inline-block;
