@@ -1,3 +1,7 @@
+<demo>
+支持disable
+</demo>
+
 <template>
 <Switch v-model:value="bool" disabled />
 </template>
