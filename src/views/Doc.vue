@@ -60,53 +60,47 @@ export default {
     flex-shrink: 0;
   }
   > .content {
+    display: flex;
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
     @media (max-width: 500px) {
       padding-left: 0; 
     }
-  }
-}
-.content {
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-    z-index: 10;
-  }
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-    background: white;
-  }
-}
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 70px;
-  height: 100%;
-  > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
-  }
-  > ol {
-    > li {
-      > a {
-        display: block;
-        padding: 4px 16px;
-        text-decoration: none;
+    > aside {
+      flex-shrink: 0;
+      z-index: 10;
+      background: lightblue;
+      width: 150px;
+      padding: 16px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 70px;
+      height: 100%;
+      > h2 {
+        margin-bottom: 4px;
+        padding: 0 16px;
       }
-      .router-link-active {
-        background: white;
+      > ol {
+        > li {
+          > a {
+            display: block;
+            padding: 4px 16px;
+            text-decoration: none;
+          }
+          .router-link-active {
+            background: white;
+          }
+        }
       }
     }
+    > main {
+      flex-grow: 1;
+      padding: 16px;
+      background: white;
+      overflow: auto;
+    }
   }
-}
-main {
-  overflow: auto;
 }
 </style>

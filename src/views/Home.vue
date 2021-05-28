@@ -64,7 +64,9 @@ $border-radius:4px;
     > li {
       width: 400px;
       margin: 14px 0;
+      padding: 0 20px;
       display: flex;
+      align-items: center;
       >.text {
         padding-left: 20px;
         display: flex;
