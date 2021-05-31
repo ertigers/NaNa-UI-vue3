@@ -11,7 +11,7 @@ export default {
       vue: 'Vue'
     },
     name: 'NaNa',
-    file: 'dist/lib/NaNa.js',
+    file: 'dist/lib/nana.js',
     format: 'umd',
     plugins: [terser()]
   },
