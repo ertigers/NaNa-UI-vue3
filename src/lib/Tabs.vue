@@ -43,11 +43,9 @@ export default {
       const left = left2 - left1
       indicator.value.style.left = left + 'px'
     }
-    onMounted(toggle)
-    onUpdated(toggle)
-    // onMounted(()=>{
-    //   watchEffect(toggle)
-    // })
+    onMounted(()=>{
+      watchEffect(toggle,{flush:'post'})
+    })
     const defaults = context.slots.default()
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
