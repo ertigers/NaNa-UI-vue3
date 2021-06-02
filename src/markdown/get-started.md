@@ -26,3 +26,15 @@ export default {
 }
 </script>
 ```
+
+## 注意事项
+代码中有
+```
+import { * } from '../../lib/index'
+```
+
+务必替换成
+```
+import { * } from "nana-ui"
+```
+
