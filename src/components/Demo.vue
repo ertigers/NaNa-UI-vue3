@@ -29,9 +29,7 @@ export default {
     component: Object,
   },
   setup(props) {
-    const html = computed(() => {
-      console.log(props.component);
-      
+    const html = computed(() => {      
       return Prism.highlight(
         props.component.__sourceCode,
         Prism.languages.html,
