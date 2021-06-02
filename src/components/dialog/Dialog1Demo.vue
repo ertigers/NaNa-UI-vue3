@@ -1,6 +1,8 @@
+<demo>
+示例1
+</demo>
+
 <template>
-  <div>Dialog 示例</div>
-  <h1>示例1</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="visible" 
           :closeOnClickOverlay="false" 
@@ -15,19 +17,17 @@
       <h3>至少笨鸟还会先飞</h3>
     </template>
   </Dialog>
-  <h1>示例2</h1>
-  <Button @click="showDialog">openDialog</Button>
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue'
-import {openDialog} from '../lib/openDialog'
-import { ref,h } from 'vue';
+import { Button,Dialog } from '../../lib/index'
+import { ref } from 'vue';
+
 export default {
-  components:{
-    Dialog,Button
-  },
+  components: {
+    Button,
+    Dialog
+  },  
   setup() {
     const visible = ref(false)
     const closeOnClickOverlay = ref(false)
@@ -40,26 +40,9 @@ export default {
     const f2 = ()=>{
       return false
     }
-    const showDialog = () => {
-      openDialog({
-        title: h('strong', {}, '标题'),
-        content: '你好',
-        ok() {
-          console.log('ok')
-          return false
-        },
-        cancel() {
-          console.log('cancel')
-          return false
-        },
-        closeOnClickOverlay: false
-      })
-    }
- 
     return { 
-      visible,closeOnClickOverlay,
-      toggle,f1,f2,showDialog }
+      visible,closeOnClickOverlay,toggle,f1,f2 
+    }
   }
-  
 }
 </script>
