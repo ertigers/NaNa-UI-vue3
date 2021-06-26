@@ -1,16 +1,22 @@
 <template>
-  <input class="nana-input" 
-    :class="classes" 
+  <input class="nana-input"
+    :value="value"
+    @input="onValueChanged($event.target.value)"
+    :class="classes"
     :type="type" 
     :clearable="clearable"
     :disabled="disabled" 
-    :placeholder="placeholder">
+    :placeholder="placeholder"
+    >
 </template>
 
 <script>
 import { computed } from 'vue';
 export default {
   props: {
+    value:{
+      type: String
+    },
     size: {
       type: String,
       default: "normal",
@@ -21,7 +27,7 @@ export default {
     },
     type: {
       type: String,
-      default: "normal",
+      default: "text",
     },
     clearable: {
       type: String,
@@ -36,7 +42,7 @@ export default {
       default: "请输入~",
     }
   },
-  setup(props) {
+  setup(props,context) {
     const { size, radius } = props;
     const classes = computed(() => {
       return {
@@ -44,7 +50,10 @@ export default {
         [`nana-input-radius-${radius}`]: radius,
       };
     });
-    return { classes };
+    const onValueChanged = (value)=>{
+      context.emit('update:value', value)
+    }
+    return { classes,onValueChanged };
   },
 }
 </script>
@@ -74,7 +83,6 @@ $grey: rgb(196, 196, 196);
   }
   &.nana-input-size-big {
     padding: 14px 8px;
-
   }
 }
 
