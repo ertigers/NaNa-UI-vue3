@@ -4,8 +4,7 @@
     @input="onValueChanged($event.target.value)"
     :class="classes"
     :type="type" 
-    :clearable="clearable"
-    :disabled="disabled" 
+    :disabled="disabled"
     :placeholder="placeholder"
     >
 </template>
@@ -31,7 +30,7 @@ export default {
     },
     clearable: {
       type: String,
-      default: "",
+      default:"noClearable",
     },
     disabled: {
       type: Boolean,
@@ -43,11 +42,12 @@ export default {
     }
   },
   setup(props,context) {
-    const { size, radius } = props;
+    const { size, radius,clearable } = props;
     const classes = computed(() => {
       return {
         [`nana-input-size-${size}`]: size,
         [`nana-input-radius-${radius}`]: radius,
+        [`nana-input-${clearable}`]: clearable
       };
     });
     const onValueChanged = (value)=>{
@@ -83,6 +83,9 @@ $grey: rgb(196, 196, 196);
   }
   &.nana-input-size-big {
     padding: 14px 8px;
+  }
+  &.nana-input-radius-radius {
+    border-radius: 20px;
   }
 }
 
